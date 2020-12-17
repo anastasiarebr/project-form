@@ -1,19 +1,80 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap')
 
-*
+
+$green:  #1BB55C
+$blue: #56CCF2
+$red: #E74C3C
+
+body
     font-family: 'Open Sans', sans-serif
+    color: #263238
+    margin: 0
+    padding: 0
+
+.container
+    width: 1140px
+    margin: 0 auto
+    .column
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        width: 290px
+        
 .form
-    position: absolute
-    top: 50%
-    left: 50%
-    transform: translate(-50%, -50%)
     &__title
         font-weight: 600
         font-size: 24px
-        line-height: 16px
+        line-height: 29px
         text-align: center
+        margin-bottom: 47px
+    &__btn
+        position: relative
+        display: block
+        width: 100%
+        height: 56px //42
+        background: $blue
+        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.16), 0px 2px 4px rgba(0, 0, 0, 0.12), 0px 1px 8px rgba(0, 0, 0, 0.1)
+        border: none
+        border-radius: 8px
+        cursor: pointer
+        font-size: 16px
+        line-height: 24px
+        text-align: center
+        color: #FFFFFF
+        margin-bottom: 15px
+        &_reg
+            background-color: $red
+            height: 42px
+            color: #ffffff
+        &_sign
+            margin-top: 15px
+            background-color: $green
+
+            
+        &:focus
+            outline: none
+        .icon
+            position: absolute
+            top: 50%
+            transform: translateY(calc(-50% + 3px))
+            right: 32px
     &__input
         position: relative
+        width: 100%
+        label
+            position: absolute
+            display: block
+            width: auto
+            left: 8px
+            top: -8px
+            height: 12px
+            padding: 0 7px
+            background-color: #fff
+            font-weight: 500
+            font-size: 12px
+            line-height: 16px
+            margin-bottom: 0
         input
             width: 100%
             height: 100%
@@ -21,20 +82,85 @@
             font-weight: 500
             font-size: 12px
             line-height: 18px
-            border: 1px solid rgba(38, 50, 56, .16)
+            border: 2px solid rgba(38, 50, 56, .16)
             box-sizing: border-box
             border-radius: 8px
-            &:focus + label 
-                color: #1BB55C
-        label
-            position: absolute
-            display: block
-            left: 12px
-            top: -9px
-            height: 18px
-            padding: 0 8px
-            background-color: #fff
-            font-weight: 500
-            font-size: 12px
-            margin-bottom: 0
+            margin-bottom: 12px
+            &:focus
+                outline: none
+                border: 2px solid $green
+                box-shadow: none
+                transition-duration: 0.2s
+            &:focus + label
+                color: $green
+                transition-duration: 0.2s
+    &__link
+        font-weight: 400
+        font-size: 14px
+        line-height: 20px
+        text-align: center
+        color: $blue
+        margin-top: 15px
+        margin-bottom: 15px
+    &__confirm
+        position: absolute
+        top: 11px
+        right: -110px
+        font-size: 16px
+        font-weight: 400
+        line-height: 24px
+        align-items: center
+        letter-spacing: 0.01em
+        color: #0E0E0E
         
+                        
+                
+//             .valid
+//                 outline: none
+//                 // border: 1px solid $green
+//                 box-shadow: none
+//                 width: auto
+//             &[type=password]:focus
+//                 border: 2px solid $green
+//                 box-shadow: none
+//                 transition-duration: 0.2s
+//             &[type=email]:focus
+//                 border: 2px solid $green
+//                 box-shadow: none
+//                 transition-duration: 0.2s
+// input[type=password].validate+label
+//     position: absolute
+//     display: block
+//     width: auto
+//     left: 8px
+//     top: -8px
+//     height: 12px
+//     padding: 0 4px
+//     background-color: #fff
+//     font-weight: 500
+//     font-size: 12px
+//     line-height: 16px
+//     margin-bottom: 0
+
+// input[type=password]:focus + label
+//     color: $green
+
+// input[type=email].validate+label
+//     position: absolute
+//     display: block
+//     width: auto
+//     left: 8px
+//     top: -8px
+//     height: 12px
+//     padding: 0 4px
+//     background-color: #fff
+//     font-weight: 500
+//     font-size: 12px
+//     line-height: 16px
+//     margin-bottom: 0
+        //     &__btn
+//         margin: 0 35px 0 35px
+//         height: 56px
+//         button
+//             color: #fff
+//             background-color: $blue

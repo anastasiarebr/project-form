@@ -1,24 +1,55 @@
 <template>
-<div class="container">
-  <div class="row">
-    <form class="col s12 m6 offset-m3 xl4 offset-xl4 form">
+  <div class="container">
+    <div class="column">
+      <form action="" class="form" @submit.prevent="submitHandler">
         <div class="form__title">Вход в личный кабинет</div>
         <div class="form__input">
-          <input id="email" type="email" class="validate" />
-           <!-- <label for="email">Логин, email или номер телефона</label> -->
-          <!-- <span class="helper-text" data-error="wrong" data-success="right"
-            >Helper text</span
-          > -->
+          <input type="text" id="login" />
+          <label for="login">Логин, email или номер телефона</label>
         </div>
         <div class="form__input">
-          <input id="password" type="password" class="validate" />
-          <!-- <label for="password">Пароль</label> -->
-          <!-- <span class="helper-text" data-error="wrong" data-success="right"
-            >Helper text</span
-          > -->
+          <input type="password" id="password" />
+          <label for="password">Пароль</label>
         </div>
-    </form>
-  </div>
+        <div class="form__link">
+        <router-link to="/">Забыли пароль?</router-link>
+      </div>
+      <button class="form__btn" type="submit">
+        Войти
+        <div class="icon">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 7H12.17L6.58 1.41L8 0L16 8L8 16L6.59 14.59L12.17 9H0V7Z"
+              fill="white"
+            />
+          </svg>
+        </div>
+      </button>
+      </form>
+      <router-link @tag="button" to="/register" class="form__btn form__btn_reg" >
+        Регистрация
+        <div class="icon">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 7H12.17L6.58 1.41L8 0L16 8L8 16L6.59 14.59L12.17 9H0V7Z"
+              fill="white"
+            />
+          </svg>
+        </div>
+      </router-link>
+    </div>
   </div>
 </template>
 
