@@ -12,9 +12,40 @@
         letter-spacing: 0.15px
         text-align: left
         margin-left: 53px
+        color: #263238
     &__hamburger
         position: absolute
         top: 22px
+        &:hover
+            cursor: pointer
+.sidebar
+    margin: 0
+    padding: 0
+    display: block
+    width: 288px
+    height: 100vh
+    background: #FFFFFF
+    position: absolute
+    top: 0
+    left: -400px
+    padding: 50px 0 0 49px
+    list-style: none
+    text-align: left
+    transition-duration: .2s
+    li
+        
+        font-weight: 500
+        font-size: 20px
+        line-height: 28px
+        align-items: center
+        letter-spacing: 0.15px
+        color: #263238
+        margin-bottom: 22px
+        a:-webkit-any-link
+            text-decoration: none
 
-
+    &_open
+        position: absolute
+        left: 0
+        box-shadow: 0px 1px 12px rgba(15, 15, 15, 0.25)
     
