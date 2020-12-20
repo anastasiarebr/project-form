@@ -19,6 +19,7 @@
       <div class="navbar__title" >Личный кабинет</div>
     </router-link>
   </div>
+  
   <ul class="sidebar" :class="{ sidebar_open: isOpen }">
       <router-link
         v-for="link in links"
