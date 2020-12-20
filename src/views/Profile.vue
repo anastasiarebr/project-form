@@ -19,14 +19,14 @@
           <input type="text" id="secondName" class="input" placeholder="Иванович" v-model="secondName"/>
           <label for="secondName" class="label" >Отчество</label>
         </div>
-        <div class="form__input">
+        <div class="form__input form__input_check">
           <input type="email" id="email" class="input" placeholder="e.g. john@gmail.com" v-model="email" @blur="checkEmail"
             :class='{input_error: !validEmail}'/>
           <label for="email" class="label"
           :class='{label_error: !validEmail}'>Email</label>
           <router-link class="form__confirm" to="/">Подтвердить</router-link>
         </div>
-        <div class="form__input">
+        <div class="form__input form__input_check">
           <input type="phone" id="phone" class="input" placeholder="+7( ___ ) ___ __ __" v-model="phone" @blur="checkPhone"
             :class='{input_error: !validPhone}'/>
           <label for="phone" class="label" :class='{label_error: !validPhone}'>Номер телефона</label>

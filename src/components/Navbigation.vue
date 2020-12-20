@@ -19,8 +19,13 @@
       <div class="navbar__title" >Личный кабинет</div>
     </router-link>
   </div>
-  
-  <ul class="sidebar" :class="{ sidebar_open: isOpen }">
+  <div class="sidebar" :class="{ sidebar_open: isOpen }">
+    <div class="sidebar_close" @click="isOpen = !isOpen">
+      <svg width="18" height="18" viewBox="0 0 357 357" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M357 35.7L321.3 0L178.5 142.8L35.7 0L0 35.7L142.8 178.5L0 321.3L35.7 357L178.5 214.2L321.3 357L357 321.3L214.2 178.5L357 35.7Z" fill="#979797"/>
+</svg>
+</div>
+  <ul >
       <router-link
         v-for="link in links"
         :key="link.url"
@@ -34,6 +39,7 @@
         </li>
       </router-link>
     </ul>
+    </div>
   </div>
 </template>
 
@@ -54,5 +60,5 @@ export default defineComponent({
 </script>
 
 <style lang="sass" scoped>
-@import '@/sass/navbar'
+@import '@/sass/style'
 </style>

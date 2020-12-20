@@ -1,0 +1,73 @@
+@media (max-height: 590px)
+    .container
+        .column
+            top: 120px
+            left: 50%
+            transform: translate(-50%, 0)
+@media (max-width: 1200px)
+    .account
+        &__btn
+            width: 290px
+            padding: 22px 0px 22px 63px
+        &__arrow
+            right: 27px
+    .sidebar
+        width: 200px
+@media (max-width: 993px)
+    .sidebar
+        width: 220px
+        padding: 70px 0 0 50px
+        ul
+            li 
+                font-size: 18px
+        &_close
+            right: 25px
+            top: 25px
+
+@media (max-width: 769px)
+    .column
+        width: 350px
+        .account
+            &__btn
+                &:hover
+                    background-color: none
+            &__icon
+                top: 19px
+                svg
+                    width: 30px
+                    height: 30px
+            &__arrow
+                right: 13px
+    .form
+        &__btn
+            &:hover
+                background-color: none
+            &_reg
+                &:hover
+                    background-color: none
+
+@media (max-width: 576px)
+    .sidebar
+        width: 85%
+        left: -500px
+        &_open
+            left: 0
+    .form
+        width: 300px
+        &__btn
+            width: 300px
+        &__input
+            &_check
+                margin-bottom: 40px
+        &__confirm
+            top: 60px
+            right: 25px
+    .column
+        .account
+            &__btn
+                width: auto
+                text-align: center
+                padding: 22px 0
+            &__icon
+                left: 5px
+    

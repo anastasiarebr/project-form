@@ -4,13 +4,33 @@
       <form class="form" @submit.prevent="onSubmit">
         <div class="form__title">Вход в личный кабинет</div>
         <div class="form__input">
-          <input type="text" id="login" class="input" v-model="login" placeholder="e.g. john@gmail.com"/>
-          <label for="login" class="label">Логин, email или номер телефона</label>
+          <input
+            type="text"
+            id="login"
+            class="input"
+            v-model="login"
+            placeholder="e.g. john@gmail.com"
+          />
+          <label for="login" class="label"
+            >Логин, email или номер телефона</label
+          >
         </div>
         <div class="form__input">
-          <input type="password" id="password" class="input" v-model="password" placeholder="8 символов" @blur="checkPassword"
-          :class='{input_error: !validPassword}'/>
-          <label for="password" class="label" :class='{label_error: !validPassword}'>Пароль</label>
+          <input
+            type="password"
+            id="password"
+            class="input"
+            v-model="password"
+            placeholder="8 символов"
+            @blur="checkPassword"
+            :class="{ input_error: !validPassword }"
+          />
+          <label
+            for="password"
+            class="label"
+            :class="{ label_error: !validPassword }"
+            >Пароль</label
+          >
         </div>
         <div class="form__link">
           <router-link to="/">Забыли пароль?</router-link>
@@ -55,9 +75,7 @@
 </template>
 
 <script lang="ts">
-// import { Options, Vue } from 'vue-class-component'
 import { defineComponent } from 'vue'
-// import { reactive, toRefs } from '@vue/composition-api'
 
 export default defineComponent({
   data () {
@@ -83,7 +101,6 @@ export default defineComponent({
     }
   }
 })
-
 </script>
 
 <style lang="sass" scoped>
