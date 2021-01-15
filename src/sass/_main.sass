@@ -43,21 +43,36 @@ $red-hover: rgba(231,76,60,0.8)
         text-align: center
         color: #FFFFFF
         margin-bottom: 15px
+        margin-top: 20px
+        text-decoration: none
+        &_text
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+            font-size: 16px
+            line-height: 24px
+            text-align: center
+            color: #FFFFFF
+
         &:hover
             background-color: $blue-hover
             transition-duration: 0.2s
         &_reg
             display: block
-            background-color: $red
+            background: white
+            border: 2px solid $blue
             height: 27px
             line-height: 16px
-            color: #ffffff
+            color: $blue
             text-decoration: none
             position: relative
-            padding-top: 14px
+            padding-top: 13px
             margin-bottom: 0
             &:hover
-                background-color: $red-hover
+                background-color: $blue
+                color: white
+
         &_sign
             margin-top: 15px
             background-color: $green
@@ -111,15 +126,15 @@ $red-hover: rgba(231,76,60,0.8)
                 transition-duration: 0.2s
             
     &__link
-        margin-bottom: 15px
-        margin-top: 5px
-        text-align: center
+        margin-bottom: 17px
+        margin-top: -9px
+        text-align: right
         a
-            font-weight: 400
-            font-size: 14px
+            font-weight: 600
+            font-size: 12px
             line-height: 20px
             text-align: center
-            color: #2D9CDB
+            color: rgba(38, 50, 56, 0.5)
             text-decoration: none
             
     &__confirm
