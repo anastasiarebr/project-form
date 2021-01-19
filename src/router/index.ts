@@ -19,6 +19,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/Register.vue')
   },
   {
+    path: '/registermobile',
+    name: 'RegisterMobile',
+    component: () => import('@/views/RegisterMobile.vue')
+  },
+  {
     path: '/account',
     name: 'Account',
     component: () => import('@/views/Account.vue')

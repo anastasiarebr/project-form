@@ -2,11 +2,12 @@
   <div class="container">
     <div class="column">
       <form action="" class="form" @submit.prevent="onRegister">
-        <div class="form__title">Регистрация нового личного кабинета</div>
+        <div class="form__title">Подтверждение регистрации</div>
         <div class="form__input">
           <input
             type="text"
             id="phone"
+            placeholder="+7( ___ ) ___ __ __"
             class="input"
             v-model="phone"
             @blur="checkPhone"
@@ -14,10 +15,8 @@
           />
           <label for="phone" class="label" :class='{label_error: !validPhone}'>Номер телефона</label>
         </div>
-        <router-link to="/registermobile" class="form__btn form__btn_sign">
-          <div class="form__btn_text">
-           Получить код
-          </div>
+        <button class="form__btn form__btn_sign">
+          <div class="form__btn_text">Отправить код</div>
           <div class="icon">
             <svg
               width="16"
@@ -32,7 +31,7 @@
               />
             </svg>
           </div>
-        </router-link>
+        </button>
       </form>
     </div>
   </div>
