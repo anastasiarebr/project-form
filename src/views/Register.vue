@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="column">
-      <form action="" class="form" @submit.prevent="onRegister">
+      <form action="" class="form" @submit.prevent="onRegister()">
         <transition name="slide-fade">
           <section v-if="step===1">
           <div class="form__title">Регистрация нового личного кабинета</div>
@@ -16,7 +16,7 @@
             />
             <label for="phone" class="label" :class='{label_error: !validPhone}'>Номер телефона</label>
           </div>
-          <button @click.prevent="nextStep()" class="form__btn form__btn_sign">
+          <button type="button" :disabled="phone.length===0" @click.prevent="nextStep()" class="form__btn form__btn_sign">
             <div class="form__btn_text">
             Получить код
             </div>
@@ -44,7 +44,7 @@
           <div class="form__phone">
             <div class="form__phone_label">Номер телефона</div>
             <div class="form__phone_number">{{ phone }}</div>
-            <a @click="step--">
+            <a @click.prevent="step--">
             <div class="form__phone_changenumber">
             Указать другой номер
             </div></a>
@@ -57,11 +57,11 @@
               v-model="code"
               placeholder="0000"
               @blur="checkCode"
-              :class='{input_error: !validPhone}'
+              :class='{input_error: !validCode}'
             />
-            <label for="code" class="label" :class='{label_error: !validPhone}'>Код подтверждения</label>
+            <label for="code" class="label" :class='{label_error: !validCode}'>Код подтверждения</label>
           </div>
-          <button @click="nextStep()" class="form__btn form__btn_sign">
+          <button type="button" :disabled="code.length!=4" @click.prevent="codeStep()" class="form__btn form__btn_sign">
             <div class="form__btn_text">
             Отправить код
             </div>
@@ -100,7 +100,7 @@
             />
             <label for="email" class="label" :class='{label_error: !validEmail}'>Email</label>
           </div>
-          <button @click="nextStep()" class="form__btn form__btn_sign">
+          <button type="button" :disabled="email.length===0" @click="emailStep()" class="form__btn form__btn_sign">
             <div class="form__btn_text">
             Продолжить
             </div>
@@ -149,7 +149,7 @@
             />
             <label for="confirmPassword" class="label" :class='{label_error: !validConfirmPassword}'>Пароль повторно</label>
           </div>
-          <button @click.prevent="onRegister" class="form__btn form__btn_sign">
+          <button @click.prevent="onRegister()" type="submit" class="form__btn form__btn_sign">
             Завершить регистрацию
             <div class="icon">
               <svg
@@ -179,25 +179,22 @@ export default defineComponent({
   data () {
     return {
       step: 1,
-      login: '',
       email: '',
       password: '',
       confirmPassword: '',
       phone: '',
+      code: '',
       minLength: 8,
-      validLogin: true,
       validEmail: true,
       validPassword: true,
       validConfirmPassword: true,
-      validPhone: true
+      validPhone: true,
+      validCode: true
     }
   },
   methods: {
     nextStep () {
       this.step++
-    },
-    checkLogin () {
-      this.validLogin = Boolean(this.login.length)
     },
     checkEmail () {
       const regExp = new RegExp(/.+@.+\..+/i)
@@ -217,14 +214,31 @@ export default defineComponent({
     checkPhone () {
       this.validPhone = Boolean(this.phone.length)
     },
-    onRegister () {
-      this.checkLogin()
+    checkCode () {
+      this.validCode = Boolean(this.code === '1111')
+    },
+    codeStep () {
+      this.checkCode()
+      if (this.validCode) {
+        this.step++
+      }
+    },
+    emailStep () {
       this.checkEmail()
+      if (this.validEmail) {
+        this.step++
+      }
+    },
+    onRegister () {
       this.checkPassword()
       this.checkConfirmPasswords()
-      this.checkPhone()
-      if (this.validLogin && this.validEmail && this.validPassword && this.validConfirmPassword && this.validPhone) {
-        console.log('Register')
+      if (this.validPassword && this.validConfirmPassword) {
+        const User = {
+          email: this.email,
+          phone: this.phone,
+          password: this.password
+        }
+        console.log(User)
         this.$router.push('/account')
       } else {
         console.log('errors')

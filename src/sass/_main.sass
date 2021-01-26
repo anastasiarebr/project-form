@@ -4,6 +4,7 @@ $blue: #56CCF2
 $blue-hover: rgba(86, 204, 242, 0.8)
 $red: #E74C3C
 $red-hover: rgba(231,76,60,0.8)
+$disabled: #CDCDCD
 
 *
     font-family: 'Open Sans', sans-serif
@@ -20,6 +21,11 @@ $red-hover: rgba(231,76,60,0.8)
         left: 50%
         transform: translate(-50%, -50%)
         width: 310px
+
+button[disabled]:hover, button[disabled]
+    cursor: not-allowed
+    background-color: $disabled
+        
 
 .form
     &__title
@@ -54,7 +60,6 @@ $red-hover: rgba(231,76,60,0.8)
             line-height: 24px
             text-align: center
             color: #FFFFFF
-
         &:hover
             background-color: $blue-hover
             transition-duration: 0.2s
