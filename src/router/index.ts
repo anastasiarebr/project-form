@@ -24,6 +24,16 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/RegisterMobile.vue')
   },
   {
+    path: '/registeremail',
+    name: 'RegisterEmail',
+    component: () => import('@/views/RegisterEmail.vue')
+  },
+  {
+    path: '/registerpassword',
+    name: 'RegisterPassword',
+    component: () => import('@/views/RegisterPassword.vue')
+  },
+  {
     path: '/account',
     name: 'Account',
     component: () => import('@/views/Account.vue')

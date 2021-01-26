@@ -2,19 +2,7 @@
   <div class="container">
     <div class="column">
       <form action="" class="form" @submit.prevent="onRegister">
-        <div class="form__title">Регистрация нового личного кабинета</div>
-        <div class="form__input">
-          <input
-            type="text"
-            id="login"
-            class="input"
-            placeholder="Superdesigner"
-            v-model.trim="login"
-            @blur="checkLogin"
-            :class='{input_error: !validLogin}'
-          />
-          <label for="login" class="label" :class='{label_error: !validLogin}'>Логин</label>
-        </div>
+        <div class="form__title">Подтвердите электронную почту</div>
         <div class="form__input">
           <input
             type="email"
@@ -27,44 +15,10 @@
           />
           <label for="email" class="label" :class='{label_error: !validEmail}'>Email</label>
         </div>
-        <div class="form__input">
-          <input
-            type="password"
-            id="password"
-            placeholder="8 символов"
-            class="input"
-            v-model="password"
-            @blur="checkPassword"
-            :class='{input_error: !validPassword}'
-          />
-          <label for="password" class="label" :class='{label_error: !validPassword}'>Пароль</label>
-        </div>
-        <div class="form__input">
-          <input
-            type="password"
-            id="confirmPassword"
-            placeholder="8 символов"
-            class="input"
-            v-model="confirmPassword"
-            @blur="checkConfirmPasswords"
-            :class='{input_error: !validConfirmPassword}'
-          />
-          <label for="confirmPassword" class="label" :class='{label_error: !validConfirmPassword}'>Пароль повторно</label>
-        </div>
-        <div class="form__input">
-          <input
-            type="text"
-            id="phone"
-            placeholder="+7( ___ ) ___ __ __"
-            class="input"
-            v-model="phone"
-            @blur="checkPhone"
-            :class='{input_error: !validPhone}'
-          />
-          <label for="phone" class="label" :class='{label_error: !validPhone}'>Номер телефона</label>
-        </div>
-        <button class="form__btn form__btn_sign">
-          Зарегистрироваться
+        <router-link to="/registerpassword" class="form__btn form__btn_sign">
+          <div class="form__btn_text">
+           Продолжить
+          </div>
           <div class="icon">
             <svg
               width="16"
@@ -79,7 +33,7 @@
               />
             </svg>
           </div>
-        </button>
+        </router-link>
       </form>
     </div>
   </div>

@@ -2,31 +2,7 @@
   <div class="container">
     <div class="column">
       <form action="" class="form" @submit.prevent="onRegister">
-        <div class="form__title">Регистрация нового личного кабинета</div>
-        <div class="form__input">
-          <input
-            type="text"
-            id="login"
-            class="input"
-            placeholder="Superdesigner"
-            v-model.trim="login"
-            @blur="checkLogin"
-            :class='{input_error: !validLogin}'
-          />
-          <label for="login" class="label" :class='{label_error: !validLogin}'>Логин</label>
-        </div>
-        <div class="form__input">
-          <input
-            type="email"
-            id="email"
-            placeholder="e.g. john@gmail.com"
-            class="input"
-            v-model.trim="email"
-            @blur="checkEmail"
-            :class='{input_error: !validEmail}'
-          />
-          <label for="email" class="label" :class='{label_error: !validEmail}'>Email</label>
-        </div>
+        <div class="form__title">Придумайте пароль</div>
         <div class="form__input">
           <input
             type="password"
@@ -51,20 +27,8 @@
           />
           <label for="confirmPassword" class="label" :class='{label_error: !validConfirmPassword}'>Пароль повторно</label>
         </div>
-        <div class="form__input">
-          <input
-            type="text"
-            id="phone"
-            placeholder="+7( ___ ) ___ __ __"
-            class="input"
-            v-model="phone"
-            @blur="checkPhone"
-            :class='{input_error: !validPhone}'
-          />
-          <label for="phone" class="label" :class='{label_error: !validPhone}'>Номер телефона</label>
-        </div>
         <button class="form__btn form__btn_sign">
-          Зарегистрироваться
+          Завершить регистрацию
           <div class="icon">
             <svg
               width="16"

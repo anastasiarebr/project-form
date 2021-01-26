@@ -3,20 +3,30 @@
     <div class="column">
       <form action="" class="form" @submit.prevent="onRegister">
         <div class="form__title">Подтверждение регистрации</div>
+        <div class="form__phone">
+          <div class="form__phone_label">Номер телефона</div>
+          <div class="form__phone_number">+79123456789</div>
+          <router-link to="/register">
+          <div class="form__phone_changenumber">
+          Указать другой номер
+          </div></router-link>
+        </div>
         <div class="form__input">
           <input
             type="text"
-            id="phone"
-            placeholder="+7( ___ ) ___ __ __"
+            id="code"
             class="input"
-            v-model="phone"
-            @blur="checkPhone"
+            v-model="code"
+            placeholder="0000"
+            @blur="checkCode"
             :class='{input_error: !validPhone}'
           />
-          <label for="phone" class="label" :class='{label_error: !validPhone}'>Номер телефона</label>
+          <label for="code" class="label" :class='{label_error: !validPhone}'>Код подтверждения</label>
         </div>
-        <button class="form__btn form__btn_sign">
-          <div class="form__btn_text">Отправить код</div>
+        <router-link to="/registeremail" class="form__btn form__btn_sign">
+          <div class="form__btn_text">
+           Отправить код
+          </div>
           <div class="icon">
             <svg
               width="16"
@@ -31,7 +41,9 @@
               />
             </svg>
           </div>
-        </button>
+        </router-link>
+        <div class="form__text">Не получили код?</div>
+        <div class="form__sendcode"><a href="">Выслать повторно</a></div>
       </form>
     </div>
   </div>
