@@ -2,7 +2,7 @@
   <div class="container">
     <div class="column">
       <form action="" class="form" @submit.prevent="onRegister">
-        <transition>
+        <transition name="slide-fade">
           <section v-if="step===1">
           <div class="form__title">Регистрация нового личного кабинета</div>
           <div class="form__input">
@@ -38,16 +38,16 @@
           </section>
         </transition>
 
-        <transition name="bounce">
+        <transition name="slide-fade">
           <section v-if="step===2">
             <div class="form__title">Подтверждение регистрации</div>
           <div class="form__phone">
             <div class="form__phone_label">Номер телефона</div>
             <div class="form__phone_number">{{ phone }}</div>
-            <router-link to="/register">
+            <a @click="step--">
             <div class="form__phone_changenumber">
             Указать другой номер
-            </div></router-link>
+            </div></a>
           </div>
           <div class="form__input">
             <input
@@ -85,7 +85,7 @@
           </section>
         </transition>
 
-        <transition>
+        <transition name="slide-fade">
           <section v-if="step===3">
             <div class="form__title">Подтвердите электронную почту</div>
           <div class="form__input">
@@ -122,7 +122,7 @@
           </section>
         </transition>
 
-        <transition>
+        <transition name="slide-fade">
           <section v-if="step===4">
             <div class="form__title">Придумайте пароль</div>
           <div class="form__input">
