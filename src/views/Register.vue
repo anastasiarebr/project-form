@@ -266,7 +266,8 @@ export default defineComponent({
     },
     changeNumber () {
       this.step--
-      this.skip = !this.skip
+      this.timerCount = 0
+      this.skip = false
     },
     checkCode () {
       this.validCode = Boolean(this.code === '1111')
@@ -288,6 +289,7 @@ export default defineComponent({
     emailStep () {
       this.checkEmail()
       if (this.validEmail) {
+        alert('На указанный адрес отправлено письмо с ссылкой для подтверждения почты. Если его нет, проверьте спам')
         this.step++
       }
     },
