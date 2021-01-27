@@ -238,11 +238,6 @@ export default defineComponent({
     }
   },
   methods: {
-    phoneStep () {
-      this.timerCount = 10
-      this.step++
-      this.countDownTimer()
-    },
     checkEmail () {
       const regExp = new RegExp(/.+@.+\..+/i)
       const isEmpty = this.email.length
@@ -261,7 +256,13 @@ export default defineComponent({
       )
     },
     checkPhone () {
-      this.validPhone = Boolean(this.phone.length)
+      const regExp = new RegExp(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/)
+      const isEmpty = this.phone.length
+      if (regExp.test(this.phone) && isEmpty) {
+        this.validPhone = true
+      } else {
+        this.validPhone = false
+      }
     },
     changeNumber () {
       this.step--
@@ -269,6 +270,14 @@ export default defineComponent({
     },
     checkCode () {
       this.validCode = Boolean(this.code === '1111')
+    },
+    phoneStep () {
+      this.checkPhone()
+      if (this.validPhone) {
+        this.timerCount = 10
+        this.step++
+        this.countDownTimer()
+      }
     },
     codeStep () {
       this.checkCode()
