@@ -189,6 +189,7 @@
             </div>
             <button
               @click.prevent="onRegister()"
+              :disabled="confirmPassword.length < 8"
               type="submit"
               class="form__btn form__btn_sign"
             >
@@ -217,8 +218,20 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { emitter, FLASH_EVENT, FlashPayload } from '@/lib/emitter'
 
 export default defineComponent({
+  setup () {
+    const onInfo = () => {
+      emitter.emit<FlashPayload>(FLASH_EVENT, {
+        message: 'На указанный адрес отправлено письмо с ссылкой для подтверждения почты. Если его нет, проверьте спам',
+        color: 'info'
+      })
+    }
+    return {
+      onInfo
+    }
+  },
   data () {
     return {
       step: 1,
@@ -289,7 +302,7 @@ export default defineComponent({
     emailStep () {
       this.checkEmail()
       if (this.validEmail) {
-        alert('На указанный адрес отправлено письмо с ссылкой для подтверждения почты. Если его нет, проверьте спам')
+        this.onInfo()
         this.step++
       }
     },
